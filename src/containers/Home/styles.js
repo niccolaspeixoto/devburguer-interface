@@ -1,27 +1,31 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { Link } from 'react-router-dom'
 import background from '../../assets/background.svg'
 
 export const Hero = styled.section`
-    background: linear-gradient(135deg, ${(props) => props.theme.mainBlack} 0%, ${(props) => props.theme.darkPurple} 100%);
+    background-color: ${(props) => props.theme.bg};
+    overflow: hidden;
+`
+
+export const HeroInner = styled.div`
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 40px;
-    padding: 72px 10% 56px;
-    overflow: hidden;
-    position: relative;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 64px 10% 56px;
 
     @media (max-width: 900px){
-        flex-direction: column;
+        flex-direction: column-reverse;
         text-align: center;
-        padding: 48px 24px 40px;
-        gap: 24px;
+        padding: 40px 24px 32px;
+        gap: 32px;
     }
 `
 
-export const HeroContent = styled.div`
-    max-width: 560px;
+export const HeroText = styled.div`
+    max-width: 520px;
 
     @media (max-width: 900px){
         max-width: 100%;
@@ -31,39 +35,27 @@ export const HeroContent = styled.div`
     }
 `
 
-export const Eyebrow = styled.span`
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: ${(props) => props.theme.orange};
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-`
-
 export const Title = styled.h1`
     font-family: "Road Rage", sans-serif;
-    font-size: 68px;
+    font-size: 72px;
     line-height: 0.95;
-    color: white;
-    margin-bottom: 20px;
+    color: ${(props) => props.theme.mainBlack};
+    margin-bottom: 18px;
 
     span{
         color: ${(props) => props.theme.orange};
     }
 
     @media (max-width: 480px){
-        font-size: 48px;
+        font-size: 50px;
     }
 `
 
 export const Subtitle = styled.p`
-    color: ${(props) => props.theme.lightGray};
-    font-size: 17px;
+    color: ${(props) => props.theme.darkGray};
+    font-size: 18px;
     line-height: 1.6;
-    max-width: 440px;
+    max-width: 420px;
     margin-bottom: 32px;
 
     @media (max-width: 900px){
@@ -74,90 +66,110 @@ export const Subtitle = styled.p`
 export const CtaButton = styled(Link)`
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    background: ${(props) => props.theme.gradientCta};
+    gap: 8px;
+    background-color: ${(props) => props.theme.orange};
     color: #fff;
     font-weight: 700;
     font-size: 16px;
     padding: 16px 32px;
     border-radius: ${(props) => props.theme.radiusPill};
     text-decoration: none;
-    box-shadow: ${(props) => props.theme.shadowMd};
     transition: ${(props) => props.theme.transition};
     cursor: pointer;
 
     &:hover{
+        background-color: ${(props) => props.theme.darkOrange};
         transform: translateY(-3px);
-        box-shadow: ${(props) => props.theme.shadowLg};
     }
 `
 
-export const Badges = styled.ul`
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 12px 28px;
-    list-style: none;
-    margin-top: 36px;
-    padding: 0;
-
-    li{
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        color: ${(props) => props.theme.white};
-        font-size: 14px;
-        font-weight: 600;
-    }
-
-    @media (max-width: 900px){
-        justify-content: center;
-    }
-`
-
-export const HeroImageWrap = styled.div`
+export const HeroVisual = styled.div`
     position: relative;
     flex-shrink: 0;
-    width: 380px;
+    width: 320px;
+    height: 320px;
     display: flex;
     align-items: center;
     justify-content: center;
 
-    &::before{
-        content: '';
-        position: absolute;
-        inset: 0;
-        margin: auto;
-        width: 340px;
-        height: 340px;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(255,140,5,0.35) 0%, rgba(255,140,5,0) 70%);
-        filter: blur(10px);
+    @media (max-width: 900px){
+        width: 240px;
+        height: 240px;
     }
+`
 
-    img{
-        position: relative;
-        width: 100%;
-        max-width: 360px;
-        filter: drop-shadow(0 20px 30px rgba(0,0,0,0.45));
-        animation: heroFloat 4s ease-in-out infinite;
-    }
+export const Blob = styled.div`
+    position: absolute;
+    inset: 0;
+    background-color: ${(props) => props.theme.purple};
+    clip-path: polygon(42% 0%, 68% 7%, 88% 23%, 99% 48%, 92% 72%, 73% 92%, 48% 100%, 23% 93%, 5% 76%, 0% 50%, 6% 25%, 23% 7%);
+`
 
-    @keyframes heroFloat {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-14px); }
-    }
+export const HeroImage = styled.img`
+    position: relative;
+    width: 78%;
+`
+
+export const Sticker = styled.span`
+    position: absolute;
+    top: -14px;
+    right: -18px;
+    transform: rotate(12deg);
+    background-color: ${(props) => props.theme.mainBlack};
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.2;
+    padding: 12px 16px;
+    border-radius: 50%;
+    box-shadow: ${(props) => props.theme.shadowMd};
+    width: 72px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     @media (max-width: 900px){
-        width: 260px;
+        width: 60px;
+        height: 60px;
+        font-size: 11px;
+        right: 0;
+    }
+`
 
-        img{
-            max-width: 240px;
-        }
+const scroll = keyframes`
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+`
 
-        &::before{
-            width: 220px;
-            height: 220px;
+export const Marquee = styled.div`
+    width: 100%;
+    overflow: hidden;
+    background-color: ${(props) => props.theme.mainBlack};
+    padding: 14px 0;
+`
+
+export const MarqueeTrack = styled.div`
+    display: flex;
+    width: max-content;
+    animation: ${scroll} 22s linear infinite;
+
+    span{
+        display: inline-flex;
+        align-items: center;
+        white-space: nowrap;
+        color: ${(props) => props.theme.white};
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+        padding: 0 24px;
+
+        &::after{
+            content: '•';
+            margin-left: 24px;
+            color: ${(props) => props.theme.orange};
         }
     }
 `

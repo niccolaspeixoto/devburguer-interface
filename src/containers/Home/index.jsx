@@ -1,38 +1,47 @@
 import { BestSellersCarousel, CategoryCarousel, CategoryHighlights, OffersCarousel} from "../../components";
-import { Badges, Container, Content, CtaButton, Eyebrow, Hero, HeroContent, HeroImageWrap, Subtitle, Title } from "./styles";
+import {
+    Blob, Container, Content, CtaButton, Hero, HeroImage, HeroInner, HeroText, HeroVisual,
+    Marquee, MarqueeTrack, Sticker, Subtitle, Title
+} from "./styles";
 import LogoBurger from '../../assets/logo-devburguer-carrinho.svg'
+
+const marqueeItems = ['Feito na brasa', 'Ingredientes frescos', 'Entrega rápida', 'Montado na hora']
 
 export function Home(){
 
     return (
         <main>
             <Hero>
-                <HeroContent>
-                    <Eyebrow>🔥 Artesanal e na brasa</Eyebrow>
+                <HeroInner>
+                    <HeroText>
+                        <Title>
+                            O MELHOR<br />
+                            HAMBÚRGUER<br />
+                            ESTÁ <span>AQUI!</span>
+                        </Title>
 
-                    <Title>
-                        O MELHOR<br />
-                        HAMBÚRGUER<br />
-                        ESTÁ <span>AQUI!</span>
-                    </Title>
+                        <Subtitle>
+                            Montado na hora, do seu jeito. Sem fórmula pronta,
+                            sem pressa — só sabor de verdade.
+                        </Subtitle>
 
-                    <Subtitle>
-                        Ingredientes frescos, montado na hora e entregue
-                        quentinho até você. Chega de pedir o mesmo de sempre.
-                    </Subtitle>
+                        <CtaButton to="/menu">Ver Cardápio</CtaButton>
+                    </HeroText>
 
-                    <CtaButton to="/menu">Ver Cardápio →</CtaButton>
+                    <HeroVisual>
+                        <Blob />
+                        <HeroImage src={LogoBurger} alt="Dev Burguer" />
+                        <Sticker>100% Artesanal</Sticker>
+                    </HeroVisual>
+                </HeroInner>
 
-                    <Badges>
-                        <li>⭐ 4.8 avaliação</li>
-                        <li>🛵 Entrega em 30-40 min</li>
-                        <li>🔥 +500 pedidos feitos</li>
-                    </Badges>
-                </HeroContent>
-
-                <HeroImageWrap>
-                    <img src={LogoBurger} alt="Dev Burguer" />
-                </HeroImageWrap>
+                <Marquee>
+                    <MarqueeTrack>
+                        {[...marqueeItems, ...marqueeItems].map((item, index) => (
+                            <span key={index}>{item}</span>
+                        ))}
+                    </MarqueeTrack>
+                </Marquee>
             </Hero>
 
             <Container>
