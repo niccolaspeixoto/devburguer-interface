@@ -86,6 +86,28 @@ export const SubmitButton = styled(Button)`
     margin-top: 40px;
 `
 
+export const DeleteButton = styled.button`
+    width: 100%;
+    height: 52px;
+    background: transparent;
+    border: 2px solid ${(props) => props.theme.darkRed};
+    color: ${(props) => props.theme.darkRed};
+    font-weight: 700;
+    font-size: 15px;
+    border-radius: ${(props) => props.theme.radiusPill};
+    transition: ${(props) => props.theme.transition};
+
+    &:hover{
+        background-color: ${(props) => props.theme.darkRed};
+        color: #fff;
+    }
+
+    &:disabled{
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+`
+
 export const ErrorMessage = styled.span`
     color: ${(props) => props.theme.darkRed};
     font-size: 14px;

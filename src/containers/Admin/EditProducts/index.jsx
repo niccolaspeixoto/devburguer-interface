@@ -2,7 +2,7 @@ import { Controller, useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
 import { Image } from "@phosphor-icons/react"
-import { Container, Form, Input, InputGroup, Label, LabelUpload, Select, SubmitButton, ErrorMessage } from "./styles"
+import { Container, DeleteButton, Form, Input, InputGroup, Label, LabelUpload, Select, SubmitButton, ErrorMessage } from "./styles"
 import { useEffect, useState } from "react"
 import { api } from "../../../services/api"
 import { toast } from "react-toastify"
@@ -22,6 +22,7 @@ const schema = yup
 export function EditProducts() {
     const [fileName, setFileName] = useState(null)
     const [categories, setCategories] = useState([])
+    const [isDeleting, setIsDeleting] = useState(false)
     const navigate = useNavigate()
 
     const {state: { product }} = useLocation()
@@ -67,6 +68,30 @@ export function EditProducts() {
         setTimeout(() => {
             navigate('/admin/produtos')
         }, 2000)
+    }
+
+    const handleDelete = async () => {
+        const confirmed = window.confirm(
+            `Tem certeza que deseja excluir "${product.name}"? Essa ação não pode ser desfeita.`
+        )
+
+        if (!confirmed) return
+
+        setIsDeleting(true)
+
+        try {
+            await toast.promise(api.delete(`/delete-products/${product.id}`), {
+                pending: 'Excluindo produto...',
+                success: 'Produto excluído com sucesso!',
+                error: 'Erro ao excluir produto! Tente novamente mais tarde.',
+            })
+
+            setTimeout(() => {
+                navigate('/admin/produtos')
+            }, 1500)
+        } catch (error) {
+            setIsDeleting(false)
+        }
     }
 
     return (
@@ -132,7 +157,11 @@ export function EditProducts() {
                         </CheckBoxContainer>
                 </InputGroup>
 
-                <SubmitButton type="submit">Editar Produto</SubmitButton>
+                <SubmitButton type="submit" disabled={isDeleting}>Editar Produto</SubmitButton>
+
+                <DeleteButton type="button" onClick={handleDelete} disabled={isDeleting}>
+                    Excluir Produto
+                </DeleteButton>
             </Form>
         </Container>
     )
