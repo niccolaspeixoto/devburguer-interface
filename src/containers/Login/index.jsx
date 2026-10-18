@@ -61,9 +61,6 @@ export function Login() {
         // localStorage.setItem('token', token)
     }
 
-    console.log(errors)
-
-
     return (
         <Container>
             <LeftContainer>

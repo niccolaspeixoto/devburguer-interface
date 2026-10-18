@@ -71,7 +71,6 @@ export default function CheckOutForm() {
                 } else {
                     throw new Error()
                 }
-                console.log(status)
 
             } catch (error) {
                 setMessage("O pagamento foi autorizado, mas houve uma falha ao registrar o pedido no sistema. Entre em contato com o suporte.")

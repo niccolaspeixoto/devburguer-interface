@@ -53,16 +53,12 @@ export function Register() {
             } else{
                 throw new Error()
             }
-            console.log(status)
 
         } catch (error) {
             toast.error('Deu ruim no sistema😭')
         }
-        
+
     }
-
-    console.log(errors)
-
 
     return (
         <Container>

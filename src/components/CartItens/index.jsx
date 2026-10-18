@@ -11,8 +11,6 @@ export function CartItens() {
 
     const { cartProducts, increaseProduct, decreaseProduct, deleteProduct} = useCart()
 
-    console.log(cartProducts)
-
     if (!cartProducts?.length) {
         return (
             <>

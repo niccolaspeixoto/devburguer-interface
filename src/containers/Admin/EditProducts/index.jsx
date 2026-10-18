@@ -26,15 +26,12 @@ export function EditProducts() {
     const navigate = useNavigate()
 
     const {state: { product }} = useLocation()
-    console.log(product)
 
     useEffect(() => {
         async function loadCategories() {
             const { data } = await api.get("/categories")
 
             setCategories(data)
-
-            console.log(data)
         }
 
         loadCategories()

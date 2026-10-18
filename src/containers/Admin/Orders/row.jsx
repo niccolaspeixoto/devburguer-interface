@@ -35,7 +35,6 @@ export function Row({ row, setOrders, orders }) {
     }
 
   }
-  console.log(JSON.stringify(row.status));
 
   return (
     <>
