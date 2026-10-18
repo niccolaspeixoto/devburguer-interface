@@ -7,23 +7,36 @@ export const Container = styled.div`
 display: flex;
 align-items: center;
 justify-content: center;
-height: 100vh;
-width: 100vw;
+min-height: 100vh;
+width: 100%;
+
+@media (max-width: 860px){
+    flex-direction: column;
+}
 `
 
 export const LeftContainer = styled.div`
 background: url(${BackgroundLogin}) no-repeat center;
 background-size: cover;
 width: 50%;
-height: 100%;
-width: 100%;
-max-width: 100%;
+height: 100vh;
 display: flex;
 align-items: center;
 justify-content: center;
+flex-shrink: 0;
 
     img{
         width: 50%;
+    }
+
+    @media (max-width: 860px){
+        width: 100%;
+        height: 160px;
+
+        img{
+            width: 30%;
+            min-width: 120px;
+        }
     }
 `
 
@@ -32,12 +45,12 @@ export const RightContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
-    width: 100%;
-    max-width: 100%;
+    height: 100vh;
+    width: 50%;
+    flex-shrink: 0;
 
     background: url(${Background}) no-repeat center;
-    background-size: cover; 
+    background-size: cover;
     background-color: #1e1e1e;
 
     p{
@@ -49,12 +62,24 @@ export const RightContainer = styled.div`
             text-decoration: underline;
         }
     }
+
+    @media (max-width: 860px){
+        width: 100%;
+        height: auto;
+        padding: 40px 0;
+    }
 `
 
 export const Tittle = styled.h2`
     font-family: "Road Rage", sans-serif;
     font-size: 40px;
     color: ${(props) => props.theme.white};
+    text-align: center;
+    padding: 0 24px;
+
+    @media (max-width: 480px){
+        font-size: 30px;
+    }
 `
 
 export const Form = styled.form`

@@ -3,10 +3,20 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
     .carousel-item{
-        padding-right: 40px;
+        padding-right: 20px;
     }
 
-    padding-left: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    @media (min-width: 640px){
+        .carousel-item{
+            padding-right: 40px;
+        }
+
+        padding-left: 40px;
+        padding-right: 0;
+    }
 `
 
 export const Title = styled.h2`

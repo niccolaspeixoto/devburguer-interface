@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
     .carousel-item{
-        padding-right: 40px;
+        padding-right: 20px;
     }
     overflow-x: hidden;
 
@@ -10,8 +10,16 @@ export const Container = styled.div`
         overflow: visible;
     }
 
-    padding-left: 40px;
+    padding-left: 20px;
     padding-bottom: 40px;
+
+    @media (min-width: 640px){
+        .carousel-item{
+            padding-right: 40px;
+        }
+
+        padding-left: 40px;
+    }
 `
 
 export const Title = styled.h2`

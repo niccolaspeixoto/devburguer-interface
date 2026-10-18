@@ -21,6 +21,26 @@ export const Banner = styled.div`
         max-width: 600px;
         text-shadow: 0 8px 24px rgba(0,0,0,0.4);
     }
+
+    @media (max-width: 768px){
+        min-height: 320px;
+
+        h1{
+            font-size: 52px;
+            padding-left: 6%;
+        }
+    }
+
+    @media (max-width: 480px){
+        min-height: 260px;
+
+        h1{
+            font-size: 38px;
+            padding-left: 24px;
+            padding-right: 24px;
+            max-width: 100%;
+        }
+    }
 `
 
 export const Container = styled.section`

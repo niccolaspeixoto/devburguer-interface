@@ -44,6 +44,23 @@ export const Banner = styled.div`
             margin-top: 12px;
         }
     }
+
+    @media (max-width: 768px){
+        height: 340px;
+        justify-content: center;
+
+        h1{
+            font-size: 44px;
+            line-height: 38px;
+            margin-right: 0;
+            text-align: center;
+            padding: 0 24px;
+
+            span{
+                font-size: 15px;
+            }
+        }
+    }
 `
 
 export const CategoriesMenu = styled.div`
@@ -90,6 +107,8 @@ export const ProductsContainer = styled.div`
 
     @media (max-width: 640px){
         grid-template-columns: 1fr;
+        padding: 24px;
+        gap: 60px;
     }
 `
 
@@ -106,11 +125,18 @@ export const BackButton = styled(Link)`
     text-decoration: none;
 
     position: absolute;
-    top: 32px;
-    left: 32px;
+    top: 20px;
+    left: 20px;
 
     &:hover{
         background-color: ${(props) => props.theme.purple};
         border-color: ${(props) => props.theme.purple};
+    }
+
+    @media (max-width: 480px){
+        padding: 8px 16px;
+        font-size: 13px;
+        top: 12px;
+        left: 12px;
     }
 `

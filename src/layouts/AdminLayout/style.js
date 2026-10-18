@@ -20,4 +20,42 @@ export const Container = styled.div`
         max-width: 1200px;
         width: 100%;
     }
+
+    @media (max-width: 900px){
+        grid-template-columns: 1fr;
+
+        section{
+            padding: 24px 16px;
+        }
+    }
+`
+
+export const MobileTopBar = styled.div`
+    display: none;
+
+    @media (max-width: 900px){
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        height: 60px;
+        padding: 0 16px;
+        flex-shrink: 0;
+        background-color: ${props => props.theme.mainBlack};
+        position: sticky;
+        top: 0;
+        z-index: 150;
+
+        img{
+            height: 28px;
+        }
+    }
+`
+
+export const MenuButton = styled.button`
+    background: transparent;
+    border: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `

@@ -3,9 +3,13 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
+  width: 100%;
+  min-width: 0;
 
   .MuiPaper-root{
     width: 100%;
+    min-width: 0;
+    overflow-x: auto;
     border-radius: ${(props) => props.theme.radiusLg} !important;
     box-shadow: ${(props) => props.theme.shadowSm} !important;
   }

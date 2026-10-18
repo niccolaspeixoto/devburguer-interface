@@ -9,12 +9,51 @@ export const Container = styled.div`
     height: 100vh;
     background-color: ${props => props.theme.mainBlack};
     border-right: 1px solid rgba(255,255,255,0.06);
+    position: relative;
 
     img{
         width: 55%;
         margin: 40px 0;
     }
 
+    @media (max-width: 900px){
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 260px;
+        z-index: 210;
+        transform: translateX(${props => props.$isOpen ? '0' : '-100%'});
+        transition: transform 0.3s ease;
+        box-shadow: ${props => props.theme.shadowLg};
+    }
+`
+
+export const Overlay = styled.div`
+    display: none;
+
+    @media (max-width: 900px){
+        display: ${props => props.$isOpen ? 'block' : 'none'};
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0,0,0,0.55);
+        z-index: 200;
+    }
+`
+
+export const CloseButton = styled.button`
+    display: none;
+
+    @media (max-width: 900px){
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        background: transparent;
+        border: none;
+        color: #fff;
+    }
 `
 export const NavLinkContainer = styled.div`
     display: flex;

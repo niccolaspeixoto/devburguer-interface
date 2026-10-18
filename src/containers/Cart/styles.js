@@ -58,5 +58,6 @@ export const Content = styled.div`
 
     @media (max-width: 900px){
         grid-template-columns: 1fr;
+        padding: 24px 16px;
     }
 `
