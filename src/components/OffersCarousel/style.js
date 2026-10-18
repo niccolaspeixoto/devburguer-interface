@@ -15,12 +15,12 @@ export const Container = styled.div`
 `
 
 export const Title = styled.h2`
-    font-size: 32px;
+    font-size: 30px;
     font-weight: 800;
-    color: ${(props) => props.theme.gren};
+    color: ${(props) => props.theme.mainBlack};
     padding-bottom: 12px;
-    margin-bottom: 70px;
-    padding-top: 70px;
+    margin-bottom: 60px;
+    padding-top: 60px;
     position: relative;
     text-align: center;
 
@@ -31,8 +31,9 @@ export const Title = styled.h2`
         left: calc(50% - 28px);
         width: 56px;
         height: 4px;
-        background-color: ${(props) => props.theme.gren};
-        
+        border-radius: ${(props) => props.theme.radiusPill};
+        background: ${(props) => props.theme.gradientCta};
+
     }
 `
 

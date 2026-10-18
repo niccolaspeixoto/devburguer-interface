@@ -1,16 +1,32 @@
 import styled from "styled-components";
 
 export const ContainerButton = styled.button `
-    background-color: ${(props) => props.theme.purple};
+    background: ${(props) => props.theme.gradientBrand};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     width: 100%;
-    height: 52px;
+    height: 48px;
     border: 0;
-    border-radius: 5px;
-    font-size: 30px;
+    border-radius: ${(props) => props.theme.radiusPill};
+    font-size: 14px;
+    font-weight: 600;
     color: ${(props) => props.theme.white};
-    transition: 0.3s ease;
+    box-shadow: ${(props) => props.theme.shadowSm};
+    transition: ${(props) => props.theme.transition};
+
+    img{
+        height: 18px;
+    }
 
     &:hover{
-        background-color: ${(props) => props.theme.secondDarkPurple};
+        transform: translateY(-2px);
+        box-shadow: ${(props) => props.theme.shadowMd};
+    }
+
+    &:active{
+        transform: scale(0.94);
+        box-shadow: ${(props) => props.theme.shadowSm};
     }
 `

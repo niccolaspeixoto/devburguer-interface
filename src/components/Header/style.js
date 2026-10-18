@@ -7,6 +7,10 @@ export const Container = styled.div`
     height: 80px;
     padding: 0 20px;
     display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: ${(props) => props.theme.shadowMd};
 `
 
 export const Content = styled.div`
@@ -26,29 +30,59 @@ export const Navigation = styled.nav`
     height: auto;
 
     div{
-        margin-left: 56px;
+        margin-left: 48px;
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 20px;
+        gap: 8px;
 
         hr{
-            width: 1px;
-            height: 24px;
+            display: none;
         }
     }
 `
 
 export const HeaderLink = styled(Link)`
-    color: ${props => props.$isActive ? (props) => props.theme.purple : (props) => props.theme.white};
-    border-bottom: ${props => props.$isActive ? `2px solid ${(props)=> props.theme.purple}` : 'none'};
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    color: ${props => props.$isActive ? '#fff' : props.theme.lightGray};
+    background-color: ${props => props.$isActive ? props.theme.purple : 'transparent'};
     text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
-    transition: color 0.3s;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 8px 18px;
+    border-radius: ${(props) => props.theme.radiusPill};
+    transition: ${(props) => props.theme.transition};
 
     &:hover{
-        color: ${(props) => props.theme.purple}
+        color: #fff;
+        background-color: ${props => props.$isActive ? props.theme.purple : 'rgba(255,255,255,0.08)'};
+    }
+`
+
+export const CartBadge = styled.span`
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 4px;
+    border-radius: ${(props) => props.theme.radiusPill};
+    background-color: ${(props) => props.theme.orange};
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: cartBadgePop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    @keyframes cartBadgePop {
+        0% { transform: scale(0); }
+        70% { transform: scale(1.25); }
+        100% { transform: scale(1); }
     }
 `
 
@@ -85,10 +119,17 @@ export const LinkContainer = styled.div`
 `
 
 export const LogOut = styled.button`
-    color: red;
+    color: ${(props) => props.theme.orange};
     text-decoration: none;
-    font-size: 16px;
+    font-size: 13px;
     font-weight: 600;
     background-color: transparent;
     border: none;
+    padding: 0;
+    transition: ${(props) => props.theme.transition};
+
+    &:hover{
+        color: ${(props) => props.theme.darkOrange};
+        text-decoration: underline;
+    }
 `

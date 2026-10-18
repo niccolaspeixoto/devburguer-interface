@@ -1,51 +1,59 @@
 import styled from "styled-components";
 
 export const ProductImage = styled.img`
-    height: 80px;
-    width: 80px;
-    border-radius:16px;
+    height: 64px;
+    width: 64px;
+    object-fit: cover;
+    border-radius: ${(props) => props.theme.radiusMd};
+    box-shadow: ${(props) => props.theme.shadowSm};
 `
 
 export const ButtonGroup = styled.div`
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
 
     button{
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 30px;
-        width: 30px;
+        height: 28px;
+        width: 28px;
         color: ${(props) => props.theme.white};
-        border-radius: 4px;
-        background-color: ${(props) => props.theme.purple};
+        border-radius: ${(props) => props.theme.radiusPill};
+        background: ${(props) => props.theme.gradientBrand};
         border: none;
-        transition: 0.3s ease;
+        font-weight: 700;
+        transition: ${(props) => props.theme.transition};
 
         &:hover{
-            background-color: ${(props) => props.theme.secondDarkPurple};
+            transform: translateY(-1px);
         }
     }
 `
 
 export const EmptyCart = styled.p`
-    font-size: 20px;
+    font-size: 18px;
     text-align: center;
-    font-weight: bold;
+    font-weight: 600;
+    color: ${(props) => props.theme.textMuted};
+    padding: 24px;
 `
 
 export const TotalPrice = styled.p`
-    font-weight: bold;
+    font-weight: 700;
+    color: ${(props) => props.theme.orange};
 `
 
 export const TrashImage = styled.img`
     height: 20px;
     width: 20px;
     cursor: pointer;
+    opacity: 0.6;
+    transition: ${(props) => props.theme.transition};
 
     &:hover{
-        color: #221a1a
+        opacity: 1;
     }
 `
 

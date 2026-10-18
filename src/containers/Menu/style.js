@@ -7,38 +7,41 @@ import { Link } from "react-router-dom";
 export const Container = styled.div`
     width: 100%;
     min-height: 100%;
-    background-color: ${(props) => props.theme.secondWhite};
+    background-color: ${(props) => props.theme.bg};
 
-        background: linear-gradient(rgba(255,255,255, 0.5),rgba(255,255,255, 0.5)), url('${BackgroundMenu}');
-    
+    background: linear-gradient(rgba(251,248,244, 0.95),rgba(251,248,244, 0.95)), url('${BackgroundMenu}');
+
 `
 
 export const Banner = styled.div`
-    background: url('${BannerHambugruer}');
+    background: linear-gradient(90deg, rgba(31,17,23,0.8) 0%, rgba(31,17,23,0.3) 65%), url('${BannerHambugruer}');
     background-color: ${(props) => props.theme.mainBlack};
     background-position: center;
     background-size: cover;
 
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-    height: 480px;
+    height: 420px;
     width: 100%;
     position: relative;
 
     h1{
         font-family: 'Road Rage', sans-serif;
-        font-size: 80px;
-        line-height: 65px;
+        font-size: 72px;
+        line-height: 60px;
         color: white;
-        position: absolute;
+        text-shadow: 0 8px 24px rgba(0,0,0,0.4);
 
-        right: 20%;
+        margin-right: 15%;
 
         span{
             display: block;
             color: ${(props) => props.theme.white};
-            font-size:20px;
+            font-size:18px;
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+            margin-top: 12px;
         }
     }
 `
@@ -46,21 +49,30 @@ export const Banner = styled.div`
 export const CategoriesMenu = styled.div`
     display: flex;
     justify-content: center;
-    gap: 50px;
-    margin-top: 50px;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: -28px;
+    position: relative;
+    z-index: 2;
 `
 
 export const CategoryButton = styled(Link)`
     text-decoration: none;
     cursor: pointer;
-    background: none;
-    color: ${ props => props.$isActiveCategory ? (props) => props.theme.purple : '#6c4275'};
-    font-size: 24px;
-    font-weight: bold;
-    padding-bottom: 5px;
+    background: ${ props => props.$isActiveCategory ? props.theme.gradientBrand : props.theme.surface};
+    box-shadow: ${(props) => props.theme.shadowMd};
+    color: ${ props => props.$isActiveCategory ? '#fff' : props.theme.secondBlack};
+    font-size: 15px;
+    font-weight: 700;
+    padding: 12px 24px;
     line-height: 20px;
     border: none;
-    border-bottom: ${props => props.$isActiveCategory && `3px solid ${(props) => props.theme.purple}`}; 
+    border-radius: ${(props) => props.theme.radiusPill};
+    transition: ${(props) => props.theme.transition};
+
+    &:hover{
+        transform: translateY(-2px);
+    }
 `
 
 export const ProductsContainer = styled.div`
@@ -69,24 +81,36 @@ export const ProductsContainer = styled.div`
     padding: 40px;
     justify-content: center;
     max-width: 1280px;
-    gap: 60px;
+    gap: 70px 40px;
     margin: 50px auto 0;
+
+    @media (max-width: 960px){
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 640px){
+        grid-template-columns: 1fr;
+    }
 `
 
 export const BackButton = styled(Link)`
-    background-color: ${(props) => props.theme.purple};
+    background-color: rgba(255,255,255,0.12);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.5);
     color: ${(props) => props.theme.white};
-    padding: 10px 20px;
-    border: none;
-    border-radius: 14px;
-    transition: 0.3s ease;
+    padding: 10px 22px;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: ${(props) => props.theme.radiusPill};
+    transition: ${(props) => props.theme.transition};
     text-decoration: none;
 
     position: absolute;
-    top: 10%;
-    left: 10%;
+    top: 32px;
+    left: 32px;
 
     &:hover{
-        background-color: #5d266b;
+        background-color: ${(props) => props.theme.purple};
+        border-color: ${(props) => props.theme.purple};
     }
 `

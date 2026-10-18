@@ -10,13 +10,13 @@ export const Container = styled.div`
         flex: 1;
         width: 100%;
         height: 100vh;
-        background-color: ${props => props.theme.secondWhite};
+        background-color: ${props => props.theme.bg};
         overflow-y: auto;
     }
 
     section{
         margin: 0 auto;
-        padding: 40px 20px;
+        padding: 40px;
         max-width: 1200px;
         width: 100%;
     }

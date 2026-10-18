@@ -2,18 +2,30 @@ import styled from 'styled-components'
 
 export const ContainerButton = styled.button`
     width: 100%;
-    height: 60px;
+    height: 56px;
     border: none;
-    border-radius: 5px;
-    background-color: ${(props) => props.theme.purple};
-    font-family: "Road Rage", sans-serif;
-    font-size: 30px;
-    color: ${props => props.red? 'red' : '#fff'};
-    transition: 0.3s ease;
+    border-radius: ${(props) => props.theme.radiusPill};
+    background: ${(props) => props.theme.gradientCta};
+    font-family: "Poppins", sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    color: ${props => props.red ? '#fff' : '#fff'};
+    box-shadow: ${(props) => props.theme.shadowSm};
+    transition: ${(props) => props.theme.transition};
 
     &:hover{
-        background-color: #6f3576;
-        background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='5' ry='5' stroke='white' stroke-width='3' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
-        border-radius: 5px;
+        transform: translateY(-2px);
+        box-shadow: ${(props) => props.theme.shadowMd};
+    }
+
+    &:active{
+        transform: translateY(0);
+    }
+
+    &:disabled{
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
     }
 `

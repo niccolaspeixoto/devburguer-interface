@@ -1,4 +1,5 @@
 import { useContext, createContext, useState, useEffect } from "react";
+import { toast } from "react-toastify";
 
 const CartContext = createContext({});
 
@@ -12,7 +13,7 @@ export const CartProvider = ({ children }) => {
         let newProductsInCart = []
         if (cartIndex >= 0) {
             newProductsInCart = [...cartProducts];
-            newProductsInCart[cartIndex].quantity += 1; 
+            newProductsInCart[cartIndex].quantity += 1;
 
             setCartProducts(newProductsInCart);
         } else {
@@ -22,6 +23,7 @@ export const CartProvider = ({ children }) => {
         }
 
         updateLocalStorage(newProductsInCart);
+        toast.success(`${product.name} adicionado ao carrinho! 🛒`)
     }
 
     const clearCart = () => { //limpa o carrinho

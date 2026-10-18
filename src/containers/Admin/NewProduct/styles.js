@@ -10,8 +10,9 @@ export const Container = styled.div`
 `
 
 export const Form = styled.form`
-    border-radius: 20px;
-    background-color: ${(props) => props.theme.black};
+    border-radius: ${(props) => props.theme.radiusLg};
+    background: ${(props) => props.theme.gradientBrand};
+    box-shadow: ${(props) => props.theme.shadowLg};
     padding: 40px;
     width: 100%;
     max-width: 500px;
@@ -34,22 +35,33 @@ export const Label = styled.label`
 
 export const Input = styled.input`
     width: 100%;
-    height: 40px;
-    border-radius: 10px;
-    padding: 0 10px;
+    height: 44px;
+    border-radius: ${(props) => props.theme.radiusMd};
+    padding: 0 14px;
     border: none;
+    font-size: 15px;
+    transition: ${(props) => props.theme.transition};
+
+    &:focus{
+        box-shadow: 0 0 0 3px rgba(255,140,5,0.4);
+    }
 `
 
 export const LabelUpload = styled.label`
     cursor: pointer;
-    border: 2px dashed ${(props) => props.theme.white};
-    border-radius: 10px;
+    border: 2px dashed rgba(255,255,255,0.5);
+    border-radius: ${(props) => props.theme.radiusMd};
     padding: 20px;
     display: flex;
     color: ${(props) => props.theme.white};
     align-items: center;
     justify-content: center;
     margin-top: 20px;
+    transition: ${(props) => props.theme.transition};
+
+    &:hover{
+        border-color: ${(props) => props.theme.orange};
+    }
 
     > svg{
         width: 40px;

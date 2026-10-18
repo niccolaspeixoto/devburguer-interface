@@ -12,10 +12,32 @@ const globalStyles = createGlobalStyle`
     font-style: normal;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: ${(props) => props.theme.bg};
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 button, a {
     cursor: pointer;
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: ${(props) => props.theme.secondWhite};
+}
+
+::-webkit-scrollbar-thumb {
+    background: ${(props) => props.theme.purple};
+    border-radius: 10px;
+}
 `
 
 export default globalStyles;

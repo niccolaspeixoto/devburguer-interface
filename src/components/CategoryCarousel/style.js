@@ -10,11 +10,11 @@ export const Container = styled.div`
 `
 
 export const Title = styled.h2`
-    font-size: 32px;
+    font-size: 30px;
     font-weight: 800;
-    color: ${(props) => props.theme.purple};
+    color: ${(props) => props.theme.mainBlack};
     padding-bottom: 12px;
-    margin-bottom: 40px;
+    margin-bottom: 32px;
     padding-top: 20px;
     position: relative;
     text-align: center;
@@ -26,17 +26,20 @@ export const Title = styled.h2`
         left: calc(50% - 28px);
         width: 56px;
         height: 4px;
-        background-color: ${(props) => props.theme.purple};
-        
+        border-radius: ${(props) => props.theme.radiusPill};
+        background: ${(props) => props.theme.gradientBrand};
+
     }
 `
 
 export const ContainerItens = styled.div`
-    background: url('${(props) => props.imageUrl}')no-repeat;
+    background: linear-gradient(rgba(0,0,0,0.05), rgba(0,0,0,0.35)), url('${(props) => props.imageUrl}')no-repeat;
     background-position: center;
     background-size: cover;
-    border-radius: 20px;
+    border-radius: ${(props) => props.theme.radiusLg};
     cursor: pointer;
+    box-shadow: ${(props) => props.theme.shadowSm};
+    transition: ${(props) => props.theme.transition};
 
     display: flex;
     align-items: center;
@@ -45,21 +48,27 @@ export const ContainerItens = styled.div`
     width: 100%;
     height: 200px;
 
-   
+    &:hover{
+        transform: translateY(-4px);
+        box-shadow: ${(props) => props.theme.shadowMd};
+    }
 `
 
 export const CategoryButton = styled(Link)`
 
         color: ${(props) => props.theme.white};
-        background-color: rgba(0,0,0, 0.5);
-        padding: 10px 30px;
-        border-radius: 30px;
-        font-size: 22.5px;
-        font-weight: bold;
+        background-color: rgba(255,255,255, 0.15);
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(255,255,255,0.4);
+        padding: 10px 28px;
+        border-radius: ${(props) => props.theme.radiusPill};
+        font-size: 20px;
+        font-weight: 700;
         text-decoration: none;
-        transition: 0.3s ease;
+        transition: ${(props) => props.theme.transition};
 
         &:hover{
-            background-color: rgb(112, 60, 103);
+            background-color: ${(props) => props.theme.purple};
+            border-color: ${(props) => props.theme.purple};
         }
 `

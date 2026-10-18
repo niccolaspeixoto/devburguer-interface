@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    background-color: ${(props) => props.theme.white};
-    border-radius: 20px;
+    background-color: ${(props) => props.theme.surface};
+    border-radius: ${(props) => props.theme.radiusLg};
+    box-shadow: ${(props) => props.theme.shadowSm};
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -15,25 +17,24 @@ export const Container = styled.div`
 
     .container-top{
         display: grid;
-        grid-gap: 10px 34%;
-        grid-template-areas: 
+        grid-gap: 12px 34%;
+        grid-template-areas:
         'title title'
         'items items-price'
         'delivery-tax delivery-tax-price';
+        padding-bottom: 16px;
     }
 
     .title{
         grid-area: title;
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 700;
         margin-bottom: 20px;
         text-align: center;
-        background-color: ${(props) => props.theme.secondBlack};
+        background: ${(props) => props.theme.gradientBrand};
         color: ${(props) => props.theme.white};
         width: 100%;
-        padding: 15px;
-        border-top-right-radius:20px ;
-        border-top-left-radius:20px ;
+        padding: 18px;
     }
 
     .items{
@@ -62,10 +63,11 @@ export const Container = styled.div`
         justify-content: space-between;
         padding: 20px;
         font-size: 20px;
-        margin-top: 20px;
+        border-top: 1px dashed ${(props) => props.theme.border};
 
         *{
-        font-weight: 700;
-    }
+            font-weight: 800;
+            color: ${(props) => props.theme.orange};
+        }
     }
 `
