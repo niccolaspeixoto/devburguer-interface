@@ -49,7 +49,6 @@ export default function CheckOutForm() {
                 setMessage("An unexpected error occurred.");// se for um erro inesperado, aqui.
             }
         } else if (paymentIntent && paymentIntent.status === 'succeeded') {// mas se der tudo certo e o status for sucesso, ele vai cair aqui.
-            setMessage("Pagamento realizado com sucesso!");
             try {
                 const products = cartProducts.map((product) => {//mapeia o que tem dentro do carrinho
                     return { id: product.id, quantity: product.quantity, price: product.price } // devolve o id, quantidade e preço.
@@ -60,12 +59,14 @@ export default function CheckOutForm() {
                     })
 
                 if (status === 200 || status === 201) {// nesse bloco, se tudo der certo ele vai cair na pagina de pagamento e o carrinho será limpo.
+                    setMessage("Pagamento realizado com sucesso!");
                     setTimeout(() => {
                         navigate(`/complete-payment?payment_intent_client_secret=${paymentIntent.client_secret}`)
                     }, 2000);
                     clearCart()
                     toast.success('Pedido realizado com sucesso!🍔😁')
                 } else if (status === 400) {// se der ruim, cai aqui.
+                    setMessage("Falha ao realizar pedido. Tente novamente.")
                     toast.error('Falha ao realizar pedido. Tente novamente.')
                 } else {
                     throw new Error()
@@ -73,6 +74,7 @@ export default function CheckOutForm() {
                 console.log(status)
 
             } catch (error) {
+                setMessage("O pagamento foi autorizado, mas houve uma falha ao registrar o pedido no sistema. Entre em contato com o suporte.")
                 toast.error('Deu ruim no sistema😭')
             }
         }
