@@ -25,7 +25,7 @@ export const Th = styled.th`
     text-transform: uppercase;
     letter-spacing: 0.4px;
     color: ${(props) => props.theme.white};
-    background: ${(props) => props.theme.gradientBrand};
+    background-color: ${(props) => props.theme.purple};
 `
 
 export const Td = styled.td`
