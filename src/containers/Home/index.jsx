@@ -1,4 +1,4 @@
-import { CategoryCarousel, OffersCarousel} from "../../components";
+import { BestSellersCarousel, CategoryCarousel, CategoryHighlights, OffersCarousel} from "../../components";
 import { Badges, Container, Content, CtaButton, Eyebrow, Hero, HeroContent, HeroImageWrap, Subtitle, Title } from "./styles";
 import LogoBurger from '../../assets/logo-devburguer-carrinho.svg'
 
@@ -39,6 +39,8 @@ export function Home(){
                 <Content>
                     <CategoryCarousel />
                     <OffersCarousel />
+                    <BestSellersCarousel />
+                    <CategoryHighlights />
                 </Content>
             </Container>
 
