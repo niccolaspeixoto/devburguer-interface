@@ -4,6 +4,8 @@ export const Container = styled.div `
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    height: 250px;
     gap: 16px;
     padding: 84px 20px 20px;
     border-radius: ${(props) => props.theme.radiusLg};
@@ -21,13 +23,20 @@ export const Container = styled.div `
 
     div{
         width: 100%;
+        flex: 1;
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         gap: 6px;
         text-align: center;
 
         p{
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            width: 100%;
             font-size: 16px;
             color: ${(props) => props.theme.secondBlack};
             line-height: 20px;
