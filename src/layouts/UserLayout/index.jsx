@@ -1,13 +1,16 @@
 import { Outlet } from "react-router-dom";
 import {Footer, Header} from '../../components'
+import { Container, Content } from './style'
 
 export function UserLayout(){
 
     return(
-        <div>
+        <Container>
             <Header />
-            <Outlet />
+            <Content>
+                <Outlet />
+            </Content>
             <Footer />
-        </div>
+        </Container>
     )
 }
