@@ -1,9 +1,13 @@
-import { useContext, useState, useEffect, createContext } from "react";
+import { useContext, useState, createContext } from "react";
 
 const UserContext = createContext({})
 
 export const UseProvider = ({ children }) => {
-    const [userInfo, setUserInfo] = useState({})
+    const [userInfo, setUserInfo] = useState(() => {
+        const userInfoLocalStorage = localStorage.getItem('devburger:userData')
+
+        return userInfoLocalStorage ? JSON.parse(userInfoLocalStorage) : {}
+    })
 
     const putUserData = (userInfo) => {
         setUserInfo(userInfo)
@@ -16,14 +20,6 @@ export const UseProvider = ({ children }) => {
         setUserInfo({})
         localStorage.removeItem('devburger:userData')
     }
-
-    useEffect(() => {
-        const userInfoLocalStorage = localStorage.getItem('devburger:userData')
-
-        if (userInfoLocalStorage) {
-            setUserInfo(JSON.parse(userInfoLocalStorage))
-        }
-    },[])
 
     return (
         <UserContext.Provider
