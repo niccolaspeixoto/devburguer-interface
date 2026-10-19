@@ -13,7 +13,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { CheckCircleIcon, PencilIcon, XCircleIcon } from "@phosphor-icons/react";
 
-import { formatPrice } from "../../../utils/formatPrice";
+import { formatPrice } from "../../../utils/FormatPrice";
 
 export function Products() {
     const [products, setProducts] = useState([])
